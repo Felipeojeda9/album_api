@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "albums")
 public class Album {
@@ -37,6 +39,7 @@ public class Album {
     private LocalDateTime deletedAt;
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Lamina> laminas;
 
     /* ===== Ciclo de vida ===== */

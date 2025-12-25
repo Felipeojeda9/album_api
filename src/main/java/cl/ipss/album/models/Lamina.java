@@ -3,6 +3,8 @@ package cl.ipss.album.models;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "laminas")
 public class Lamina {
@@ -36,9 +38,10 @@ public class Lamina {
 
     @ManyToOne
     @JoinColumn(name = "album_id", nullable = false)
+    @JsonBackReference
     private Album album;
 
-    /* ===== Ciclo de vida ===== */
+    //Ciclo de vida
 
     @PrePersist
     public void prePersist() {

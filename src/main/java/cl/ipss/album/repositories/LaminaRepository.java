@@ -12,9 +12,9 @@ public interface LaminaRepository extends JpaRepository<Lamina, Long> {
     List<Lamina> findByAlbumAndActiveTrue(Album album);
 
     //Laminas faltanes (cantidad = 0)
-    List<Lamina> findByAlbumAndCantidadEqualsActiveTrue(Album album, Integer cantidad);
+    List<Lamina> findByAlbumAndCantidadAndActiveTrue(Album album, Integer cantidad);
 
     //Laminas repetidas (canitidad > 1)
-    List<Lamina> findByAlbumAndCantidadEqualsAndActiveTrue(Album album, Integer cantidad);
+    List<Lamina> findByAlbumAndCantidadGreaterThanAndActiveTrue(Album album, Integer cantidad);
 
 }
